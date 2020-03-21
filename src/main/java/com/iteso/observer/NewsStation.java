@@ -1,8 +1,6 @@
 package com.iteso.observer;
 
-import com.iteso.observer.impl.StoreBannerObserver;
-import com.iteso.observer.impl.StoreDisplayObserver;
-import com.iteso.observer.impl.JamaiconScoresSubject;
+import com.iteso.observer.impl.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,10 +14,15 @@ class NewsStation {
         JamaiconScoresSubject jamaiconScoresSubject;
         jamaiconScoresSubject = new JamaiconScoresSubject();
 
-        StoreDisplayObserver storeDisplayObserverGalerias = new StoreDisplayObserver(jamaiconScoresSubject, "Tienda Galerias");
-        StoreDisplayObserver storeDisplayObserverAndares = new StoreDisplayObserver(jamaiconScoresSubject, " Tienda Andares");
+        Observer storeDisplayObserverGalerias = new StoreDisplayObserver("Tienda Galerias");
+        Observer storeDisplayObserverAndares = new JamaiconAppObserver("App");
+        Observer storeBannerObserverAndares = new StoreBannerObserver("Banner Andares");
+        Observer webPage = new JamaiconWebObserver("WebPage");
 
-        StoreBannerObserver storeBannerObserverAndares = new StoreBannerObserver(jamaiconScoresSubject, "Banner Andares");
+        jamaiconScoresSubject.registerObserver(storeDisplayObserverGalerias);
+        jamaiconScoresSubject.registerObserver(storeDisplayObserverAndares);
+        jamaiconScoresSubject.registerObserver(storeBannerObserverAndares);
+        jamaiconScoresSubject.registerObserver(webPage);
 
         jamaiconScoresSubject.setScore("Atletico Lagos", "Tennis Tonatiuh", 8, 1);
         jamaiconScoresSubject.setScore("Deportivo Arnoldos", "Aclas", 0, 0);

@@ -17,14 +17,12 @@ public class StoreDisplayObserver implements Observer{
     private int awayGoals;
     private String name;
 
-    public StoreDisplayObserver(Subject scoresData, String storeName){
-        Subject scoresData1 = scoresData;
+    public StoreDisplayObserver(String storeName){
         this.name = storeName;
-        scoresData1.registerObserver(this);
     }
 
     public void display() {
-        System.out.println(name + "- Latest score is:");
+        System.out.println(name + "- Latest score in Display is:");
         System.out.println(homeTeam + " (HOME) - " + homeGoals);
         System.out.println(awayTeam + " (AWAY) - " + awayGoals);
     }

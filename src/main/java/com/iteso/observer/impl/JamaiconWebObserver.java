@@ -1,7 +1,6 @@
 package com.iteso.observer.impl;
 
 import com.iteso.observer.Observer;
-import com.iteso.observer.Subject;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,19 +9,19 @@ import com.iteso.observer.Subject;
  * Time: 3:15 PM
  * To change this template use File | Settings | File Templates.
  */
-public class StoreBannerObserver implements Observer{
+public class JamaiconWebObserver implements Observer{
     private String homeTeam;
     private String awayTeam;
     private int homeGoals;
     private int awayGoals;
     private String name;
 
-    public StoreBannerObserver(String storeName){
+    public JamaiconWebObserver(String storeName){
         this.name = storeName;
     }
 
     public void display() {
-        System.out.println(name + "- Latest score in Banner is:");
+        System.out.println(name + "- Latest score in Web Page is:");
         System.out.println(homeTeam + " (HOME) - " + homeGoals);
         System.out.println(awayTeam + " (AWAY) - " + awayGoals);
     }
